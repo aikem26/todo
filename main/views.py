@@ -28,7 +28,8 @@ def add_book(request):
         price=form["price"],
         genre=form["genre"],
         author=form["author"],
-        year=form["year"][:10]
+        year=form["year"][:10],
+        is_favorite=form["is_favorite"]
     )
 
     book.save()
