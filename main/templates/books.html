@@ -5,29 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'styles/books.css' %}">
     
 </head>
 <body>
-    <form action="{% url 'add-book' %}" method="POST">
-        {% csrf_token %}
-        <h1>Добавить книгу</h1>
-       <input type="text" name="title" placeholder="Заголовок"><br><br>
-       <input type="text" name="subtitle" placeholder="Подзаголовок"><br><br>
-       <input type="text" name="description" placeholder="Описание"><br><br>
-       <input type="number" name="price" placeholder="Цена"><br><br>
-       <input type="text" name="genre" placeholder="Жанр"><br><br>
-       <input type="text" name="author" placeholder="Автор"><br><br>
-       <input type="datetime-local" name="year" placeholder="Год выхода книги"><br><br>
-       <button>Добавить</button>
-    </form>
-    <hr>
-    {% for book in books %}
-        <div>
-            <h3>Книга: {{ book.title }}</h3>
-            <h3>Автор: {{ book.author }}</h3>
-            <h4>Цена: {{ book.price }} сом</h4>
+
+    <section>
+        <div class="split left">
+            <div class="centered">
+                <form action="{% url 'add-book' %}" method="POST">
+                    {% csrf_token %}
+                    <h1>Добавить книгу</h1><br>
+                    <input class="class4" type="text" name="title" placeholder="Заголовок"><br><br>
+                    <input class="class4" type="text" name="subtitle" placeholder="Подзаголовок"><br><br>
+                    <input class="class4" type="text" name="description" placeholder="Описание"><br><br>
+                    <input class="class4" type="number" name="price" placeholder="Цена"><br><br>
+                    <input class="class4" type="text" name="genre" placeholder="Жанр"><br><br>
+                    <input class="class4" type="text" name="author" placeholder="Автор"><br><br>
+                    <input class="class4" type="datetime-local" name="year" placeholder="Год выхода книги"><br><br>
+                    <button class="create_button">Добавить</button><br><br>
+                </form>
+            </div>
         </div>
-        <hr>
-    {% endfor %}
+            
+        </div>
+    
+        <div class="split right">
+            <div class="centered">
+                {% for book in books %}
+                <hr class="line">
+                    <h3 class="class1">Книга: {{ book.title }}</h3>
+                    <h3 class="class2">Автор: {{ book.author }}</h3>
+                    <h4 class="class3">Цена: {{ book.price }} сом</h4>
+                {% endfor %}
+            </div> 
+        </div>
+
+        
+    </section>
+
 </body>
 </html>
